@@ -4,7 +4,7 @@
     <div class="login-modal">
       <input type="text" placeholder="e-mail/login">
       <input type="password" placeholder="password">
-      <button>Log in</button>
+      <button @click="onLogin">Log in</button>
     </div>
   </div>
 </template>
@@ -13,6 +13,11 @@
 
 export default {
   components: {
+  },
+  methods: {
+    onLogin() {
+      this.$router.push('/admin');
+    }
   }
 }
 </script>

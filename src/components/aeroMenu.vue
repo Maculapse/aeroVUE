@@ -26,7 +26,6 @@ export default {
       } else {
         this.menu=false;
       }
-      console.log(this.menu)
     },
     goHome() {
       if (this.menu===true) {
@@ -45,7 +44,6 @@ export default {
     },
     exitMenu() {
         this.menu = false;
-        console.log(this.menu)
       }
   },
   directives: {
@@ -58,9 +56,6 @@ export default {
 <style lang="scss">
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;1,300;1,600&family=Pacifico&display=swap');
 
-$primary: #03A9F4;
-$secondary: #3ec2ff;
-$text: #2c3e50;
   .menu {
       .menu-button {
         width: 20vw;

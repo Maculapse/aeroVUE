@@ -1,0 +1,14 @@
+@mixin input {
+  height: 50px;
+  min-width: 200px;
+  max-width: 200px;
+  border-radius: 15px;
+  border: 1px solid $text;
+  text-align: center;
+  font-size: 18px;
+  outline: none;
+
+  &:focus {
+    border: 2px solid $primary;
+  }
+}

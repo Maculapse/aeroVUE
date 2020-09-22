@@ -58,27 +58,7 @@ export default {
 <style lang="scss" scoped>
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,200;0,400;0,500;0,600;0,700;1,300;1,600&family=Pacifico&display=swap');
 
-$primary: #03A9F4;
-$secondary: #3ec2ff;
-$text: #4a4c53;
-
-@mixin button($color) {
-  background-color: $color;
-  color: white;
-  font-size: 24px;
-  outline: none;
-  border: none;
-  border-radius: 15px;
-  min-width: 200px;
-  max-width: 250px;
-  height: 50px;
-  margin: 10px;
-  -webkit-box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: .3);
-  
-  &:hover {
-    background-color: $secondary;
-  }
-}
+@import '../styles/primary-button.scss';
 
   .home {
     width: 100vw;
@@ -104,6 +84,7 @@ $text: #4a4c53;
           align-items: center;
           margin-top: 25px;
           width: 80vw;
+          border-radius: 30px;
           -webkit-box-shadow: 4px 4px 10px rgba($color: #000000, $alpha: .3);
           
           h3 {
