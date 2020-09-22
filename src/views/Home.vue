@@ -9,7 +9,7 @@
           :key="product._id">
           <h3>{{product.name}}</h3>
           <div class="product-image">
-            <img src="../assets/pad.jpg">
+            <img :src="product.image">
           </div>
           <span>
             <p>Price: ${{product.price}}</p>

@@ -3,7 +3,7 @@
     <div @click="onBrowseFiles" class="image">
       <h3>Add image</h3>
       <img src="../assets/plus.svg" alt="">
-      <input type="file" ref="fileInput"> 
+      <input @change="onFileInputChange" type="file" ref="fileInput"> 
     </div>
     <input v-model="name" type="text" placeholder="product name">
     <input v-model="price" type="text" placeholder="price">
@@ -21,6 +21,7 @@ export default {
       name: '',
       price: '',
       quantity: '',
+      files: [],
       baseURL: '/api/products'
     }
   },
@@ -28,11 +29,22 @@ export default {
     onBrowseFiles() {
       this.$refs.fileInput.click();
     },
+    onFileInputChange(e) {
+      let files = e.target.files;
+      Array.from(files).forEach(file => this.addImage(file))
+      console.log(this.files)
+    },
+    addImage(file) {
+      this.files.push(file);
+    },
     onCreate() {
+      console.log(this.files)
       const productFormData = new FormData();
       productFormData.set('name', this.name);
       productFormData.set('price', this.price);
       productFormData.set('quantity', this.quantity);
+      productFormData.append('file', this.files[0]);
+      console.log(productFormData)
       axios.post(this.baseURL, productFormData,{
         headers: {
           'Content-Type': 'multipart/form-data'
