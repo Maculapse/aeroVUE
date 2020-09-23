@@ -3,21 +3,23 @@
     <h1>Administrator panel</h1>
     <div class="action">
       <button @click="toggleAction('products')" :class="{selected: productsShow}">Products</button>
-        <div class="createProduct shown" v-show="productsShow"></div>
+        <adminProducts ref="adminProducts" class="roller shown" :class="{hidden: !productsShow}"></adminProducts>
       <button @click="toggleAction('orders')" :class="{selected: ordersShow}">Orders</button>
-        <div class="createProduct shown" v-show="ordersShow"></div>
+        <div class="roller shown" :class="{hidden: !ordersShow}"></div>
       <button @click="toggleAction('create')" :class="{selected: createShow}">Create product</button>
-        <createProduct class="createProduct shown" v-show="createShow"></createProduct>
-    </div>
+        <createProduct class="roller shown" :class="{hidden: !createShow}"></createProduct>
+    </div>  
   </div>
 </template>
 
 <script>
 import createProduct from '../components/createProduct';
+import adminProducts from '../components/adminProducts';
 
 export default {
   components: {
-    createProduct
+    createProduct,
+    adminProducts
   },
   data() {
     return {
@@ -72,21 +74,35 @@ export default {
       }
     }
 
-    .createProduct {
+    .roller {
 
       &.shown {
         height: 350px;
         opacity: 1;
-        @keyframes roll {
+        @keyframes roll-out {
           from {
-            height: 1px;
+            height: 0px;
             opacity: 0;
           } to {
             height: 350px;
             opacity: 1;
           }
         }
-        animation: roll .7s;
+        animation: roll-out .7s;
+      }
+      &.hidden {
+        height: 0px;
+        opacity: 0;
+        @keyframes roll-in {
+          from {
+            height: 350px;
+            opacity: 1;
+          } to {
+            height: 0px;
+            opacity: 0;
+          }
+        }
+        animation: roll-in .7s;
       }
     }
   }
