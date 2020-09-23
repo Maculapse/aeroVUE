@@ -1,6 +1,6 @@
 <template>
   <div class="admin">
-    <h1>Administrator panel</h1>
+    <h1>Owner's panel</h1>
     <div class="action">
       <button @click="toggleAction('products')" :class="{selected: productsShow}">Products</button>
         <adminProducts ref="adminProducts" class="roller shown" :class="{hidden: !productsShow}"></adminProducts>
